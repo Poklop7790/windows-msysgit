@@ -40,7 +40,7 @@
 	dt = difftool
 	mt = mergetool
 [diff]
-	tool = vs11
+	tool = diffuse
 [difftool]
 	prompt = false
 [difftool "bc4"]
@@ -49,9 +49,11 @@
 	cmd = \"c:/program files/Perforce/p4merge.exe\" \"$LOCAL\" \"$REMOTE\"
 [difftool "vs11"]
 	cmd = \"c:/program files (x86)/microsoft visual studio 11.0/common7/ide/devenv.exe\" '//diff' \"$LOCAL\" \"$REMOTE\"
+[difftool "diffuse"]
+	cmd = diffuse \"$LOCAL\" \"$REMOTE\"
 
 [merge]
-	tool = bc3
+	tool = diffuse
 [mergetool]
 	prompt = false
 	keepBackup = false
@@ -61,3 +63,6 @@
 [mergetool "p4"]
 	cmd = \"c:/program files/Perforce/p4merge.exe\" \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 	trustExitCode = false
+[mergetool "diffuse"]
+	cmd = diffuse \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
+
